@@ -31,6 +31,13 @@ ENVIRONMENT () {
         	cd /tmp && curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py > /dev/null 2>&1 && python2 get-pip.py > /dev/null 2>&1;
         	#Needed for NoSQLMap
         	pip install couchdb pbkdf2 pymongo ipcalc six > /dev/null 2>&1; 
+	elif [ "$OS" == "Parrot" ]; then
+		    # Specific Parrot OS
+		    apt-get update -y > /dev/null 2>&1;
+		    apt-get install chromium python2 python2.7 python3 python3-pip unzip make gcc libpcap-dev curl build-essential libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev ruby libgmp-dev zlib1g-dev -y > /dev/null 2>&1;
+		    cd /tmp && curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py > /dev/null 2>&1 && python2 get-pip.py > /dev/null 2>&1;
+		    # Needed for NoSQLMap
+		    pip install couchdb pbkdf2 pymongo ipcalc six > /dev/null 2>&1;
 	elif [ "$OS" == "Kali" ]; then
 		#Specific Kali Linux
 		#Specificity : no package name with "python"
